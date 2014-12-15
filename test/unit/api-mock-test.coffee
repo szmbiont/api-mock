@@ -84,6 +84,27 @@ describe 'ApiMock class', () ->
         new_api_mock = () ->
           api_mock = new ApiMock(configuration)
         assert.throws new_api_mock, 'No blueprint path provided.'
+        
+  ###
+  # TODO finish (start) tests
+  describe 'stop()', () ->
+  
+    api_mock = {}
+    configuration = {}
+    
+    beforeEach () ->
+      configuration =
+        blueprintPath: './test/fixtures/single-get.apib',
+        options:
+          port: 3005
+      api_mock = new ApiMock(configuration)
+    
+    describe 'with running mock api', () ->
+    
+    describe 'without running mock api', () ->
+  ###
+      
+        
 
   describe 'run()', () ->
 
