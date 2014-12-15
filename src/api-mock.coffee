@@ -52,16 +52,14 @@ class ApiMock
 
       # start server
       try
-        app.listen( if @configuration?.options?.port? then @configuration.options.port else 3000 )
+        @server = app.listen( if @configuration?.options?.port? then @configuration.options.port else 3000 )
       catch error
       
       
-  stop: () ->
-    app = @app
-    
+  stop: () =>
     # stop server
     try
-        app.close()
+        @server.close()
     catch error
     
 
