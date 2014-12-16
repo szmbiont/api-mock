@@ -30,7 +30,7 @@ class ApiMock
     if !@configuration.options['cors-disable']
       corsSupport = new CorsSupport @app
 
-  run: () ->
+  run: () =>
     app = @app
 
     try
@@ -57,9 +57,16 @@ class ApiMock
       
       
   stop: () =>
+    console.log new Date()
+  
     # stop server
     try
         @server.close()
+        
+        @server.on 'close', () =>
+            console.log new Date()
+            console.log "closed for real"
+            
     catch error
     
 

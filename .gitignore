@@ -1,3 +1,5 @@
+/src/api-mock.coffee~
+/test/unit/api-mock-test.coffee~
 # OS X
 .DS_Store
 .AppleDouble
