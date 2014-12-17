@@ -56,19 +56,19 @@ class ApiMock
       catch error
       
       
-  stop: () =>
+  stop: (cb = null) =>
     console.log new Date()
+  
+    @server.on 'close', () =>
+        console.log new Date()
+        console.log "closed for real"
+        if cb
+            cb()  
   
     # stop server
     try
         @server.close()
-        
-        @server.on 'close', () =>
-            console.log new Date()
-            console.log "closed for real"
             
     catch error
-    
-
 
 module.exports = ApiMock
